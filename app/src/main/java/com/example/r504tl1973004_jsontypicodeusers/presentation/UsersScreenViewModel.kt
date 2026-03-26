@@ -16,7 +16,7 @@ import retrofit2.Retrofit
 class UsersScreenViewModel(private val api: JsonTypiCodeAPI) : ViewModel() {
 
     companion object {
-        fun createFctory() : ViewModelProvider.Factory = viewModelFactory {
+        fun createFactory() : ViewModelProvider.Factory = viewModelFactory {
             initializer {
 
                 UsersScreenViewModel(jsonTypicodeService)
