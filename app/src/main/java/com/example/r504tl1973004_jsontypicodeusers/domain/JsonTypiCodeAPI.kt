@@ -13,10 +13,11 @@ private val api =
 
 
 interface JsonTypiCodeAPI {
-
+    // GET:: https://jsonplaceholder.typicode.com/users
     @GET("users")
     suspend fun getAllUsers() : List<User>
 
 }
 
 val jsonTypicodeService = api.create<JsonTypiCodeAPI>()
+// jsonTypicodeService.getAllUsers()

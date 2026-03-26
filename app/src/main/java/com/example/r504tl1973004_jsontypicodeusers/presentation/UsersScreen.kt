@@ -19,10 +19,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.r504tl1973004_jsontypicodeusers.R
+import com.example.r504tl1973004_jsontypicodeusers.domain.jsonTypicodeService
 
 @Composable
 fun UsersScreenRoot(modifier: Modifier = Modifier) {
-    val vm = viewModel<UsersScreenViewModel>()
+    // Dagger Hilt
+    val vm = viewModel<UsersScreenViewModel>(factory = UsersScreenViewModel.createFctory())
     val state by vm.state.collectAsStateWithLifecycle()
 
     UsersScreen(state = state)
