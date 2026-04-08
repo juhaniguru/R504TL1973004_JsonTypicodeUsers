@@ -41,21 +41,23 @@ import com.example.r504tl1973004_jsontypicodeusers.R
 import com.example.r504tl1973004_jsontypicodeusers.domain.jsonTypicodeService
 
 @Composable
-fun UsersScreenRoot(modifier: Modifier = Modifier) {
+fun UsersScreenRoot(modifier: Modifier = Modifier, onNavigateAddUser : () -> Unit) {
     // Dagger Hilt
     val vm = viewModel<UsersScreenViewModel>(factory = UsersScreenViewModel.createFactory())
     val state by vm.state.collectAsStateWithLifecycle()
 
-    UsersScreen(state = state)
+    UsersScreen(state = state, onNavigateAddUser = onNavigateAddUser)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun UsersScreen(modifier: Modifier = Modifier, state: UsersState) {
+fun UsersScreen(modifier: Modifier = Modifier, state: UsersState, onNavigateAddUser: () -> Unit) {
     Scaffold(
         floatingActionButtonPosition = FabPosition.Center,
         floatingActionButton = {
-            FloatingActionButton(onClick = {}) {
+            FloatingActionButton(onClick = {
+                onNavigateAddUser()
+            }) {
                 Icon(Icons.Default.Add, contentDescription = stringResource(R.string.add_user))
             }
         },

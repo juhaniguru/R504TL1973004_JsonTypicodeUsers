@@ -69,7 +69,9 @@ class MainActivity : ComponentActivity() {
                 ) {
                     NavHost(navController = navController, startDestination = "users") {
                         composable("users") {
-                            UsersScreenRoot()
+                            UsersScreenRoot(onNavigateAddUser = {
+                                navController.navigate("addUser")
+                            })
                         }
                         composable(route = "addUser") {
                             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
