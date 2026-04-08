@@ -37,25 +37,28 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.example.r504tl1973004_jsontypicodeusers.R
 import com.example.r504tl1973004_jsontypicodeusers.domain.jsonTypicodeService
 
 @Composable
-fun UsersScreenRoot(modifier: Modifier = Modifier) {
+fun UsersScreenRoot(modifier: Modifier = Modifier, navController: NavController) {
     // Dagger Hilt
     val vm = viewModel<UsersScreenViewModel>(factory = UsersScreenViewModel.createFactory())
     val state by vm.state.collectAsStateWithLifecycle()
 
-    UsersScreen(state = state)
+    UsersScreen(state = state, navController = navController)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun UsersScreen(modifier: Modifier = Modifier, state: UsersState) {
+fun UsersScreen(modifier: Modifier = Modifier, state: UsersState, navController: NavController) {
     Scaffold(
         floatingActionButtonPosition = FabPosition.Center,
         floatingActionButton = {
-            FloatingActionButton(onClick = {}) {
+            FloatingActionButton(onClick = {
+                navController.navigate("addUser")
+            }) {
                 Icon(Icons.Default.Add, contentDescription = stringResource(R.string.add_user))
             }
         },
