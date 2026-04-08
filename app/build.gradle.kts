@@ -39,6 +39,9 @@ android {
 
 dependencies {
 
+
+    implementation(libs.androidx.navigation.compose)
+
     implementation(libs.kotlinx.coroutines.test)
 
 
