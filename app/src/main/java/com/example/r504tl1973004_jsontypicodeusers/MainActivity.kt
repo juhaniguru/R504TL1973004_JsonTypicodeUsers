@@ -31,6 +31,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 //import androidx.navigation.NavHost
 import androidx.navigation.compose.rememberNavController
+import com.example.r504tl1973004_jsontypicodeusers.presentation.AddUserScreenRoot
 import com.example.r504tl1973004_jsontypicodeusers.presentation.UsersScreenRoot
 import com.example.r504tl1973004_jsontypicodeusers.ui.theme.R504TL1973004_JsonTypicodeUsersTheme
 
@@ -74,9 +75,9 @@ class MainActivity : ComponentActivity() {
                             })
                         }
                         composable(route = "addUser") {
-                            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                                Text("Add User")
-                            }
+                            AddUserScreenRoot(onBackClick = {
+                                navController.navigateUp()
+                            })
                         }
                     }
                 }
