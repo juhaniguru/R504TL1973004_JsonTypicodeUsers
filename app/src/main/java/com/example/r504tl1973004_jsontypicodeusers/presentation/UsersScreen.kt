@@ -41,9 +41,9 @@ import com.example.r504tl1973004_jsontypicodeusers.R
 import com.example.r504tl1973004_jsontypicodeusers.domain.jsonTypicodeService
 
 @Composable
-fun UsersScreenRoot(modifier: Modifier = Modifier, onNavigateAddUser : () -> Unit) {
+fun UsersScreenRoot(modifier: Modifier = Modifier, vm: UsersScreenViewModel, onNavigateAddUser : () -> Unit) {
     // Dagger Hilt
-    val vm = viewModel<UsersScreenViewModel>(factory = UsersScreenViewModel.createFactory())
+    //val vm = viewModel<UsersScreenViewModel>(factory = UsersScreenViewModel.createFactory())
     val state by vm.state.collectAsStateWithLifecycle()
 
     UsersScreen(state = state, onNavigateAddUser = onNavigateAddUser)

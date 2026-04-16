@@ -34,7 +34,7 @@ class UsersScreenViewModel(private val api: JsonTypiCodeAPI) : ViewModel() {
     val addUserState = _addUserState.asStateFlow()
 
     init {
-        Log.d("juhanikikkailee", "${hashCode()}")
+        Log.d("juhanikikkailee::viewmodel", "${hashCode()}")
         getUsers()
     }
 

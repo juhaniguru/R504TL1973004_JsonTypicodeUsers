@@ -1,5 +1,6 @@
 package com.example.r504tl1973004_jsontypicodeusers
 
+import com.example.r504tl1973004_jsontypicodeusers.domain.CreateUserReqDto
 import com.example.r504tl1973004_jsontypicodeusers.domain.JsonTypiCodeAPI
 import com.example.r504tl1973004_jsontypicodeusers.presentation.User
 import com.example.r504tl1973004_jsontypicodeusers.presentation.UsersScreenViewModel
@@ -20,6 +21,14 @@ class MockAPI(private val result: List<User> = emptyList(), val err: String? = n
         }
 
         return result
+    }
+
+    override suspend fun getUserById(id: Int) {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun createUser(reqData: CreateUserReqDto): User {
+        TODO("Not yet implemented")
     }
 
 }
